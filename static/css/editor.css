@@ -1,0 +1,110 @@
+.titulos_edit{
+    display: flex;
+    justify-content: center;
+    margin: 4em;
+}
+.titulos_editor{
+    width: auto;
+    text-align: center;
+}
+.titulos_editor h1{
+    font-weight: 800;
+    font-size: 26px;
+    margin: 1.2em;
+}
+.titulos_editor p{
+    font-size: 22px;
+}
+
+.layout_editores{
+    display: flex;
+    justify-content: center;
+}
+
+
+.area_de_computadores{
+    display: grid;
+    grid-template-columns: repeat(11,1fr);
+    grid-template-rows: repeat(8,1fr);
+    grid-column-gap: 0.4em;
+    row-gap: 2.0px;
+    width: 94%;
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    padding: 0.7em;
+    
+}
+
+
+
+.dropzone_margin{
+    grid-column: 7;
+}
+
+.dropzone{
+    scale: 0.8;
+    max-height: 8em;
+    
+    
+   
+}
+.highlight{
+    background-color: gray;
+    width: 7em;
+    height: 8em;
+    border: 2px solid black;
+    border-radius:8px;
+    opacity: 0.5;
+    
+}
+.highlight_secundario{
+    background-color: red;
+    opacity: 0.5;
+}
+
+.adicionar{
+  background-color: rgb(37, 240, 18);
+  width: 7em;
+  height: 8em;
+  border: 2px solid black;
+  border-radius:8px;
+  opacity: 0.5;
+}
+
+.card_computador_remover{
+  width: 7em;
+  height: 8em;
+  background-color: rgba(220, 14, 14, 0.77);
+  border: 2px solid black;
+  border-radius:8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.card_computador_remover:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.action_buttons_container{
+    display: flex;
+    justify-content: center;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.action_buttons{
+    position: relative;
+    margin-left: 30px;
+  }
+
+.hidden_input{
+    display: none;
+}

@@ -1,0 +1,39 @@
+
+
+.footer_home{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.151);
+    padding: 2em 0  0 ;
+}
+.footer_home h1{
+    font-size: 22px;
+    color: black;
+
+}
+.github{
+    margin: 2rem 0 2rem 0;    
+}
+
+
+.link_github{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-object{
+    width: 30px;
+    margin-left: 0.5rem;
+}
+
+
+.github::before{
+    content: "";
+    background: url("../img/icons8-github.svg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}

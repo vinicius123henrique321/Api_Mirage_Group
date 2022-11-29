@@ -1,0 +1,161 @@
+{% extends "base.html" %}+841
+{% block main %}
+    
+<main>
+  <div class="lab_superior">
+            <h1>Editor de laboratório</h1>
+            
+          </div>
+          <div class="titulos_edit">
+            <div class="titulos_editor">
+              <h1>LABORATÓRIO {{ labnum }}</h1>
+              <p>Arraste e solte os computadores para customizar o layout</p>
+              <p>Use os botões para adicionar ou remover computadores</p>
+              <p>Abaixo você pode atualizar as especificações dos computadores</p>
+              <p>Quando terminar, clique no botão Salvar</p>
+              <br>
+              <form action="/lab/{{labnum}}/edit/salvar" method="POST">
+                <input type="text" class="hidden_input" id="remove_pcs" name="remove_pcs">
+                <input type="text" class="hidden_input" id="new_pcs" name="new_pcs">
+                <input type="text" class="hidden_input" id="new_pos" name="new_pos">
+                <input type="text" class="hidden_input" id="layout" name="layout">
+                <input type="text" class="hidden_input" id="cpu2" name="cpu">
+                <input type="text" class="hidden_input" id="gpu2" name="gpu">
+                <input type="text" class="hidden_input" id="ram2" name="ram">
+                <input type="text" class="hidden_input" id="os2" name="os">
+                <button type="input" class="btn btn-danger mt-4" id="save_edit_button">SALVAR</button>
+              </form>
+            </div>
+          </div>
+          <div class="action_buttons_container">
+            <button class="btn btn-warning action_buttons" id="add_computer_btn" data-bs-toggle="modal" data-bs-target="#modal_add_computer">Adicionar computador</button>
+            <button class="btn btn-warning action_buttons" id="remove_computer_btn">Remover computador</button>
+          </div>
+        
+    <br><br>
+    
+    <!-- computadores -->
+
+          {% if not computadores %}
+            <section class="layout_editores">
+              <div class="area_de_computadores">
+                {% for i in range(1, 89) %}
+                  <div class="dropzone"></div>
+                {% endfor %}
+              </div>
+            </section>
+          {% else %}
+    <section class="layout_editores">
+      <div class="area_de_computadores">
+        {% set vars = namespace(valor=0) %}
+      {% for i in range(1, 89) %}
+      {% if vars.valor == computadores|length %}
+        {% set vars.valor = 0 %}
+      {% endif %}
+        {% if computadores[vars.valor][0] == i %}
+          {% if computadores[vars.valor][2] == None %}
+            <div class="dropzone" data-pos="{{i}}">
+              <card class="card_computador card" data-exists="yes" data-pc-id="{{computadores[vars.valor][1]}}" data-bs-toggle="modal" data-bs-target="#modal-teste"  data-bs-whatever="{{computadores[vars.valor][2]}}" draggable="true" id="{{computadores[vars.valor][2]}}">
+                <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
+                  <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                  <div class="container_texto status_verde">
+                    <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
+                  </div>
+                </div> 
+              </card>
+          </div>
+          {% set vars.valor = vars.valor + 1 %}
+          {% else %}
+            <div class="dropzone" data-pos="{{i}}">
+              <card class="card_computador card" data-exists="yes" data-pc-id="{{computadores[vars.valor][1]}}" data-bs-toggle="modal" data-bs-target="#modal-red"  data-bs-problema='{"pc_problema":"{{computadores[vars.valor][2]}}", "pc_descricao":"{{computadores[vars.valor][3]}}"}' draggable="true" id="problem">
+                <div class="container_popover" data-bs-toggle="popover" data-bs-title="Status do computador" data-bs-content="{{computadores[vars.valor][3]}}" data-bs-trigger="hover">  
+                  <img src="{{ url_for('static',     filename='img/img_monitor.png') }}" class="imagem_monitor">
+                  <div class="container_texto status_vermelho">
+                    <p class="texto_computador ">{{computadores[vars.valor][1]}}</p>
+                  </div>
+                </div> 
+              </card>
+            </div>
+            {% set vars.valor = vars.valor + 1 %}
+          {% endif %}
+        {% else %}
+          <div class="dropzone" data-pos="{{i}}"></div>
+        {% endif %}
+      {% endfor %}
+      </div> 
+    </section>
+  {% endif %}
+
+  <section class="container_especificações">
+    <div class="container_especificações_titulo">
+      ESPECIFICAÇÕES
+    </div> 
+    <hr style="width:100%">
+    <section class="especificações">
+      <div class="especificação_item">
+        <h3>Processador</h3>
+    
+        <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/processor.svg') }}">
+        <p class="especificações_texto">{{componentes[0][1]}}</p>
+          <input id="cpu1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;"/>
+        <!-- <p class="especificações_texto_hover"> A CPU ou o processador é o “cérebro” de todo computador e celular do planeta: trata-se do componente responsável por executar todas as operações necessárias para o funcionamento do dispositivo.</p> -->
+      </div>
+      <div class="especificação_item">
+        <h3>Placa de Vídeo</h3>
+        
+        <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/gpu.svg') }}">
+        <p class="especificações_texto">{{componentes[0][2]}}</p>
+          <input id="gpu1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;"/>
+        <!-- <p class="especificações_texto_hover">GPU é um processadorque trabalha de maneira dedicada a atividades de vídeo dentro do computador. A sigla remete ao nome Unidade de Processamento Gráfico e sua função é processar as informações gráficas de uma máquina. Ela também diminui a sobrecarga da CPU e melhora a troca de dados entre as duas peças. </p> -->
+      </div>
+      <div class="especificação_item">
+        <h3>Memória RAM</h3>
+      
+        <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/memoria.svg') }}">
+        <p class="especificações_texto">{{componentes[0][3]}}</p>
+          <input id="ram1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;" />
+        <!-- <p class="especificações_texto_hover"> A memória RAM, também chamado de memória volátil de leitura e escrita, é uma memória temporária computacional de acesso rápido; ou seja, é um local de armazenamento temporário de informações digitais usada pelo processador para armazenar informações temporariamente e que possui um acesso feito de forma aleatória</p> -->
+      </div>
+      <div class="especificação_item">
+        <h3>Sistema Operacional</h3>
+        
+        <img class="especificações_item_imagem" src="{{ url_for('static',     filename='img/sistema.svg') }}">
+        <p class="especificações_texto">{{componentes[0][4]}}</p>
+          <input id="os1" type="text" class="form-control" name="componente" autocomplete="off" style="width: 80%;" />
+        <!-- <p class="especificações_texto_hover "> O sistema operacional é um software, ou conjunto de softwares, cuja função é administrar e gerenciar os recursos de um sistema, desde componentes de hardware e sistemas de arquivos a programas de terceiros, estabelecendo a interface entre o computador e o usuário.</p> -->
+      </div>
+
+    </section>
+
+<!-- MODAIS -->
+
+<div class="modal fade" id="modal_add_computer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Adicionar computador</h5>
+      </div>
+        <div class="modal-body">
+          <br>
+        </div>
+        <form id="new_pc_id_form">
+          <label class="form-label fw-bold" for="pc_problem">Insira o ID do novo computador</label>
+          <input type="text" class="form-control espeçamento_modal" value="" id="new_pc_id" autocomplete="off" autofocus="true" required style="width: 95%; margin-left: auto; margin-right: auto;"><br>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <input type="submit" class="btn btn-primary" value="Continuar" data-bs-dismiss="modal" id="add_computer_id_btn">
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<script src="{{ url_for('static',     filename='js/editor.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+  $('#modal_add_computer').on('shown.bs.modal', function() {
+  $(this).find('input:first').focus();
+});
+</script>
+{% endblock %}

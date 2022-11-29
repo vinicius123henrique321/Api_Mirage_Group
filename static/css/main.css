@@ -1,0 +1,573 @@
+
+hr{
+    width: 100%;
+    border-top: 2px solid;
+}
+
+
+.main_apresentação{
+   text-align: center;
+   padding: 0 8em;
+   margin: 25px;
+
+
+
+}
+.main_apresentação h1{
+    margin: 0.5em 0 0.7em 0; 
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    
+}
+.apresentação_texto{
+    font-size: 22px;
+    font-weight: 300;
+}
+.apresentação_semChamado{
+    font-size: 32px;
+    font-weight: 600;
+}
+.error_img{
+    width: 3%;
+}
+
+
+.faixa_textos{
+    text-align: center;
+    padding: 20px 50px;
+    
+}
+.faixa_titulo{
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0.5em 0;
+}
+.faixa_descrição{
+  font-size: 24px;
+
+    
+}
+.altura_titulo_carousel{
+    margin-bottom: 8.5em;
+}
+.titulo_principal{
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px #000000;
+
+}
+.main_secundario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 3em;
+    background-image: linear-gradient(white,gray); 
+}
+
+.main_secundario h1 {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.accordion h2 {
+    font-weight: bolder;
+    color: rgb(30, 127, 253);
+}
+
+.accordion {
+    min-width: 100%;
+}
+
+.div_lab{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid;
+    
+}
+.div_sec_textos{
+    text-align: center;
+    margin: 2em;
+    flex-wrap: wrap;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 40%;
+}
+.secundario_descrição{
+    font-size: 24px;
+
+}
+.secundario_titulo{
+    font-size: 32px;
+    font-weight: 700;
+}
+.main_links{
+    display: inline-block;
+    border-radius: 8px;
+    background-color: var(--vermelho_principal);
+    width: 30em;
+    height: 5em;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    line-height: 5em;
+    text-transform: uppercase;
+
+}
+.div_reportar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+
+.tamanho_carousel{
+    height: 600px;
+    object-fit: cover;
+}
+#carouselExampleCaptions{
+    margin: 3em 0;
+}
+
+.carousel-item h1 {
+    color: white;
+    text-shadow: #000000 1em;
+    margin-top: -9%;
+}
+
+.carousel-item img {
+    filter: brightness(80%)
+}
+
+    /* MAIN INFORMAÇÕES */
+
+.informações_sos{
+    display: flex;
+    margin: 2em 0;
+    }
+.informações_imagem{
+    width: 40%;
+    border-bottom-right-radius: 16px;
+    border-top-right-radius: 16px;
+    }
+.informações_texto{
+    text-align: center;
+    padding: 3em;
+    width: 60%;
+    }
+
+
+    /* PAGINA LAB */
+
+
+
+.lab_superior{
+    text-align: center;
+    margin: 2em 0;
+}
+.container_lab_vazio{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.container_lab_vazio img{
+    width: 8%;
+    margin: 1em;
+}
+.lab_superior h1, .container_lab_vazio h1{
+    font-size: 36px;
+    margin: 0.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.card_computador{
+    width: 7em;
+    height: 8em;
+    border: 2px solid black;
+    border-radius:8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+.card_computador:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+.container_popover{
+    width: 6.8em;
+    height: 7.8em;
+    
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.container_texto{
+    align-self: flex-end;
+    border-top: 1px solid black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.texto_computador{
+
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 17.2px;
+}
+.status_verde{
+    background-color: green;
+    color: white;
+}
+.status_vermelho{
+    background-color: darkred;
+    color: white;
+}
+.status_branco{
+    background-color: #ffffff00;
+    color: black;
+}
+.imagem_monitor{
+    width: 47%;
+    height: auto;
+    margin-top:2em
+}
+.fileira_computadores{
+    display: flex;
+    gap: 10px;
+}
+.container_layout{
+    display: grid;
+    width: 65%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4,1fr);
+    grid-column-gap: 3em;
+    row-gap: 2em;
+    
+}
+
+.lab_inferior{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2%;
+    
+}
+.layout_legendas{
+    margin-left: 20%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    
+
+}
+.botões_explicação{
+    display: flex;
+    align-items: center;
+    margin: 2em 0 0 8%;
+    width: 2em;
+}
+.transição_degrade{
+    
+    background-image: linear-gradient(white,gray);
+    
+}
+.div_transição{
+    width: 100%;
+    height: 10em;
+}
+.espaçamento_modal{
+    margin: 0 0 2em 0;
+}
+
+.container_breaks{
+    display: flex;
+    justify-content: center;
+    gap: 12em;
+    margin-top: 2%;
+    height: 17em;
+
+
+}
+.container_especificações{
+    text-align: center;
+    margin:2em 0;
+}
+.container_especificações_titulo{
+    font-size: 32px;
+    font-weight: 800;
+    
+}
+.especificações{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 70vh;
+    
+}
+.especificação_item{
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 15%;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: center;
+    justify-content: space-around;
+    height: 65%;
+    
+}
+.especificações_item_imagem{
+    width: 25%;
+}
+.especificação_item h3{
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0.1em 0 ;
+   
+
+}
+.especificações_texto{
+    margin: 1em 0 ;
+    font-weight: 600;
+   
+}
+/*.especificação_item:hover{
+    border: 1px solid var(--vermelho_principal);
+    transition: 0.5s;
+    height: auto;
+}
+.especificações_texto_hover{
+   
+    display: none;
+    margin: 1em 0 ;
+}
+.especificação_item:hover > .especificações_texto_hover {
+    display: block;
+    border-top: 1px solid black;
+    padding: 0.5em;
+    border-top: 1px solid var(--vermelho_principal);
+    transition: 0.5s;
+    
+}*/
+
+
+
+
+
+    /* TELA DO TÉCNICO */
+
+.searchbar {
+    display: flex;
+}
+
+.container_reports{
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 1em;
+ background-color: rgb(241, 241, 241);
+ padding: 1em;
+} 
+
+.reports_cardaberto{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    background-color:rgb(238, 238, 238) ;
+    border: 2px solid var(--vermelho_principal);
+    border-radius: 8px;
+}
+
+.reports_cardfechado{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    background-color:rgb(238, 238, 238) ;
+    border: 2px solid rgb(0, 255, 115);
+    border-radius: 8px;
+}
+
+.none {
+    display: none;
+}
+
+.aba-ativa {
+    border-bottom: 2.5px solid red;
+}
+
+.card_titulo{
+    font-size: 28px;
+    text-transform: uppercase ;
+}
+.card_subtitulo{
+    font-size: 16px;
+}
+.card_descrição strong{
+    font-weight: 800;
+    
+}
+
+.seta_baixo{
+    background-image: url('../img/imagem_seta_baixo.svg');
+    background-repeat: no-repeat;
+    width: 20px;
+}
+.seta_cima{
+    background-image: url('../img/imagem_seta_alto.svg');
+    background-repeat: no-repeat;
+}
+
+.card_tecnico_titulo{
+    text-transform: uppercase;
+
+}
+#titulo_barra{
+    border-right: 2px solid black;
+    padding-right: 0.6em;
+    
+}
+.card_superior_titulo_aberto{
+    display: flex;
+    gap: 0.6em;
+    width: 100%;
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.5);
+    padding: 0.2em 0.5em;
+    background-color: rgb(255, 0, 0, 0.6) ;
+    
+
+}
+.card_superior_titulo_fechado{
+    display: flex;
+    gap: 0.6em;
+    width: 100%;
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.5);
+    padding: 0.2em 0.5em;
+    background-color: rgb(0, 255, 115) ;
+   
+}
+.card_subtitulo{
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0.7em 0;
+    text-transform: uppercase;
+}
+.card_superior_subtitulo{
+    display: flex;
+    gap: 0.6em;
+    width: 100%;
+    padding: 0.2em 0.5em;
+    
+}
+.collapse_report{
+    margin: 8px;
+}
+.btn_closeCall{
+    background-color:#c71c30ef ;
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 0.6em;
+    margin: 0.6em 0;
+   border-radius: 8px;
+    border: 1px solid  hsla(0, 0%, 0%, 0.5); ;
+}
+
+.btn_closeCall:hover{
+    background-color: #c71c30b9 ;
+    transition: 0.5s;
+
+}
+
+.btn_deleteCall{
+  background-color:#918385ef ;
+  color: white;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 0.6em;
+  margin: 0.6em 0;
+ border-radius: 8px;
+  border: 1px solid  hsla(0, 0%, 0%, 0.5); ;
+}
+
+.btn_deleteCall:hover{
+  background-color: #a79fa0ef ;
+  transition: 0.5s;
+
+}
+
+.card_descrição{
+    overflow-wrap: break-word; 
+}
+
+
+    /* ESTATISTICAS */
+.area_de_estatisticas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    padding: 0.7em;
+    gap: 50px;
+    width: 100%;
+}
+.estatisticas_tables{
+   width: 65%;
+   margin-bottom: 2em;
+
+}
+
+.estatisticas_tables_labs{
+    width: 40%;
+   margin-bottom: 2em;
+
+}
+.estatisticas_tables_circle{
+    width: 30%;
+    margin-bottom: 2em;
+}
+.menu_estatisticas_itens{
+display: flex;
+flex-wrap: wrap;
+
+justify-content: center;
+padding-left: 0;
+margin-bottom: 0;
+list-style: none;
+align-items: center;
+
+}
+.botão_estatisticas{
+    background-color: transparent;
+    border: 0px ;
+    padding: 10px;
+    list-style: none;
+    text-decoration: none;
+    border-radius: 0px;
+}
+.aba-ativa-estatisticas{
+   
+    border-bottom: 2px solid red;
+}
+.menu_estatisticas_itens button{
+    margin: 1em 1.5em;
+}
